@@ -29,4 +29,115 @@
       cursor: pointer;
     }
   }
+
+  $pix-size: 7px;
+  $primary: rgba(78, 37, 79, 1);
+  $primary-dark:rgb(49, 24, 49);
+  .menu {
+    position: relative;
+    display: block;
+    width: ($pix-size * 5);
+    height: ($pix-size * 5);
+
+    .pix {
+      position: absolute;
+      width: $pix-size;
+      height: $pix-size;
+      background-color: $primary;
+      transition: 0.2s ease-in-out;
+
+      $num: 0;
+      @for $i from 1 through 9 {
+        @if $i%3 == 1 {
+          $num: 0;
+        }
+
+        &:nth-of-type(#{$i}) {
+          transform: translate(
+            ($pix-size * 2) * $num,
+            ($pix-size * 2) * (floor(($i - 1)/3))
+          );
+        }
+
+        $num: $num + 1;
+      }
+    }
+
+    &:hover {
+      .pix {
+        background-color: $primary-dark;
+
+        &:nth-of-type(1) {
+          transform: translate(-($pix-size), -($pix-size));
+        }
+        &:nth-of-type(3) {
+          transform: translate(($pix-size * 5), -($pix-size));
+        }
+        &:nth-of-type(7) {
+          transform: translate(-($pix-size), ($pix-size * 5));
+        }
+        &:nth-of-type(9) {
+          transform: translate(($pix-size * 5), ($pix-size * 5));
+        }
+      }
+    }
+
+    &.active {
+      .pix {
+        &:nth-of-type(1) {
+          transform: translate(0, 0);
+        }
+        &:nth-of-type(2) {
+          transform: translate($pix-size, $pix-size);
+        }
+        &:nth-of-type(3) {
+          transform: translate(($pix-size * 4), 0);
+        }
+        &:nth-of-type(4) {
+          transform: translate($pix-size, ($pix-size * 3));
+        }
+        &:nth-of-type(6) {
+          transform: translate(($pix-size * 3), $pix-size);
+        }
+        &:nth-of-type(7) {
+          transform: translate(0, ($pix-size * 4));
+        }
+        &:nth-of-type(8) {
+          transform: translate(($pix-size * 3), ($pix-size * 3));
+        }
+        &:nth-of-type(9) {
+          transform: translate(($pix-size * 4), ($pix-size * 4));
+        }
+      }
+
+      &:hover {
+        .pix {
+          &:nth-of-type(1) {
+            transform: translate(-($pix-size), -($pix-size));
+          }
+          &:nth-of-type(2) {
+            transform: translate(($pix-size/2), ($pix-size/2));
+          }
+          &:nth-of-type(3) {
+            transform: translate(($pix-size * 5), -($pix-size));
+          }
+          &:nth-of-type(4) {
+            transform: translate(($pix-size/2), ($pix-size * 3.5));
+          }
+          &:nth-of-type(6) {
+            transform: translate(($pix-size * 3.5), ($pix-size/2));
+          }
+          &:nth-of-type(7) {
+            transform: translate(-($pix-size), ($pix-size * 5));
+          }
+          &:nth-of-type(8) {
+            transform: translate(($pix-size * 3.5), ($pix-size * 3.5));
+          }
+          &:nth-of-type(9) {
+            transform: translate(($pix-size * 5), ($pix-size * 5));
+          }
+        }
+      }
+    }
+  }
 }
