@@ -1,3 +1,7 @@
+$pix-size: 7px;
+$primary: rgba(78, 37, 79, 1);
+$primary-dark: rgb(49, 24, 49);
+
 .header {
   background: white;
   .container {
@@ -20,7 +24,7 @@
       }
     }
     .selected {
-      color: rgba(78, 37, 79, 1);
+      color: $primary;
     }
     .header-button {
       padding: 32px 89px 32px 80px;
@@ -29,10 +33,6 @@
       cursor: pointer;
     }
   }
-
-  $pix-size: 7px;
-  $primary: rgba(78, 37, 79, 1);
-  $primary-dark:rgb(49, 24, 49);
   .menu {
     position: relative;
     display: block;
@@ -137,6 +137,94 @@
             transform: translate(($pix-size * 5), ($pix-size * 5));
           }
         }
+      }
+    }
+  }
+}
+
+// Hero
+
+.hero {
+  .about-company {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 180px;
+    margin-top: 232px;
+
+    .button-default {
+      color: white;
+      background-color: $primary;
+      text-align: center;
+      text-transform: uppercase;
+      // margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .button-slanted {
+      -ms-transform: skewX(-20deg);
+      -webkit-transform: skewX(-20deg);
+      transform: skewX(-20deg);
+      // padding: 34px 0px;
+    }
+    .button-company {
+      position: relative;
+      padding: 23px 38px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 64px;
+        background: white;
+        -ms-transform: skewX(-20deg);
+        -webkit-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+      }
+    }
+
+    .button-slanted-content {
+      -ms-transform: skewX(20deg);
+      -webkit-transform: skewX(20deg);
+      transform: skewX(20deg);
+      display: inline-block;
+    }
+    .arrow-right {
+      background-image: url("../assets/arrow-right.svg");
+      width: 20px;
+      padding: 23px 30px;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: center;
+    }
+  }
+  .promotion {
+    margin-left: 180px;
+    display: flex;
+    .promotion-info-box {
+      background: rgba(154, 204, 194, 1);
+      padding: 80px 36px 128px 40px;
+      max-width: 792px;
+      h1 {
+        color: $primary;
+        text-transform: uppercase;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 60px;
+        line-height: 72px;
+        letter-spacing: 0.04em;
+        margin: 0;
+        margin-bottom: 32px;
+      }
+      p {
+        margin: 0;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: justify;
+        color: $primary;
       }
     }
   }
