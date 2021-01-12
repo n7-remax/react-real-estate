@@ -1,6 +1,7 @@
 $pix-size: 7px;
 $primary: rgba(78, 37, 79, 1);
 $primary-dark: rgb(49, 24, 49);
+$primary-light: rgba(154, 204, 194, 1);
 
 .header {
   background: white;
@@ -226,6 +227,83 @@ $primary-dark: rgb(49, 24, 49);
         text-align: justify;
         color: $primary;
       }
+    }
+  }
+  .slider {
+    display: flex;
+    justify-content: space-between;
+    .slider-nav {
+      display: flex;
+      align-items: center;
+      margin-left: 180px;
+      .swiper-button-prev-unique,
+      .swiper-button-next-unique {
+        background-image: url("../assets/arrow-right.svg");
+        background-repeat: no-repeat;
+        border: 1px white solid;
+        width: 44px;
+        height: 64px;
+        -ms-transform: skewX(-20deg);
+        -webkit-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+        margin-right: 10px;
+        background-position: center;
+      }
+      .swiper-button-prev-unique {
+        background-image: url("../assets/arrow-left.svg");
+
+      }
+      .active-slider-button {
+        cursor: pointer;
+        background-color: $primary-light;
+      }
+    }
+    .slider-main {
+      display: flex;
+      color: $primary-light;
+    }
+    .swiper-pagination-bullet {
+      background: none;
+      width: 18px;
+      margin-right: 14px;
+    }
+    .slider-desc {
+      position: relative;
+      max-width: 585px;
+      background: $primary;
+      padding: 48px;
+
+      h3 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        margin: 0;
+        margin-top: 24px;
+      }
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -50px;
+        background: $primary;
+        width: 97px;
+        height: 100%;
+        -ms-transform: skewX(-20deg);
+        -webkit-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+        z-index: 10;
+      }
+    }
+    .swiper-container {
+      width: 420px;
+      height: 256px;
     }
   }
 }
