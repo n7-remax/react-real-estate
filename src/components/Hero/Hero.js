@@ -24,12 +24,12 @@ const Hero = () => {
     <div className="hero">
       <div className="container">
         <div className="about-company">
-          <div className="button-default button-company">
+          <div className="button-default button-company arrow-right fill">
             <span>ПРО КОМПАНІЮ</span>
           </div>
-          <div className="button-default arrow-right">
+          {/* <div className="button-default arrow-right ">
             <span></span>
-          </div>
+          </div> */}
         </div>
         <div className="promotion">
           <div className="promotion-info-box">

@@ -54,7 +54,8 @@ $primary-light: rgba(154, 204, 194, 1);
     nav {
       display: flex;
       flex-direction: column;
-      padding-top: 100px;
+      padding-top: 160px;
+      overflow: auto;
       a {
         max-width: 320px;
         text-decoration: none;
@@ -73,7 +74,6 @@ $primary-light: rgba(154, 204, 194, 1);
     .copyright {
       display: flex;
       align-items: flex-end;
-      height: 100%;
       p {
         font-style: normal;
         font-weight: normal;
@@ -92,6 +92,7 @@ $primary-light: rgba(154, 204, 194, 1);
     display: flex;
     justify-content: space-between;
     position: relative;
+    background: white;
     z-index: 13;
     .logo-box {
       display: flex;
@@ -293,6 +294,44 @@ $primary-light: rgba(154, 204, 194, 1);
       margin-top: 15px;
       margin-bottom: 87px;
     }
+    .fill:hover {
+      color: $primary;
+      background-image: url("../assets/arrow-right.svg");
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: 94% 50%;
+    }
+
+    .fill:before {
+      content: "";
+      position: absolute;
+      background: $primary-light;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      top: 0;
+      z-index: -1;
+      transition: right 0.10s ease-in;
+    }
+
+    .fill:hover:before {
+      right:0;
+      background-image: url("../assets/arrow-right.svg");
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: 95% 50%;
+    }
+    @media screen and(max-width:650px) {
+      .fill:hover {
+        color: $primary;
+        background-position: 97% 50%;
+      }
+      .fill:hover:before {
+        background-position: 98% 50%;
+      }
+
+      
+    }
 
     .button-default {
       color: white;
@@ -312,7 +351,11 @@ $primary-light: rgba(154, 204, 194, 1);
     }
     .button-company {
       position: relative;
+      z-index: 1;
+      transition: 0.08s ease-in;
       padding: 23px 38px;
+      text-align: left;
+      width: 261px;
       @media screen and(max-width:650px) {
         width: 100%;
       }
@@ -320,8 +363,8 @@ $primary-light: rgba(154, 204, 194, 1);
         content: "";
         position: absolute;
         top: 0;
-        right: 0;
-        width: 1px;
+        right: 55px;
+        width: 2px;
         height: 64px;
         background: white;
         -ms-transform: skewX(-20deg);
@@ -338,12 +381,12 @@ $primary-light: rgba(154, 204, 194, 1);
     }
     .arrow-right {
       background-image: url("../assets/arrow-right.svg");
-      width: 20px;
-      margin-left: -1px;
-      padding: 23px 30px;
       background-repeat: no-repeat;
       background-size: 16px;
-      background-position: center;
+      background-position: 93% 50%;
+      @media screen and(max-width:650px) {
+        background-position: 96% 50%;
+      }
     }
   }
   .promotion {
