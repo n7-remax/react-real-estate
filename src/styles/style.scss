@@ -74,6 +74,7 @@ $primary-light: rgba(154, 204, 194, 1);
     .copyright {
       display: flex;
       align-items: flex-end;
+      flex: 1;
       p {
         font-style: normal;
         font-weight: normal;
