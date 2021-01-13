@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   // toggle scroll on header menu open/close
   useEffect(() => {
@@ -16,9 +16,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo-box">
-          <div className="logo">
             <img src={logo} alt="logo" />
-          </div>
           <div className="lang-switch">
             <span className="selected">UA</span>
             <span>RU</span>
@@ -44,7 +42,7 @@ const Header = () => {
         </div>
       </div>
       {isOpen ? (
-        <div className="nav-menu">
+        <div className="nav-menu slide-fade-enter-active">
           <nav>
             <a href="#">Головна</a>
             <a href="#">Про компанію</a>

@@ -5,6 +5,7 @@ $primary-light: rgba(154, 204, 194, 1);
 
 .header {
   background: white;
+  overflow: hidden;
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -37,6 +38,8 @@ $primary-light: rgba(154, 204, 194, 1);
     }
     .copyright {
       display: flex;
+      align-items: flex-end;
+      height: 100%;
       p {
         font-style: normal;
         font-weight: normal;
@@ -59,13 +62,42 @@ $primary-light: rgba(154, 204, 194, 1);
     .logo-box {
       display: flex;
       padding: 32px 89px 32px 80px;
-      background: #dadde8;
+      background: #F7F8FC;
+      @media screen and(max-width: 750px) {
+        padding: 34px 9px 35px 32px;
+      }
+      @media screen and(max-width: 550px) {
+        padding: 17px 17px 17px 24px;
+        background: none;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 74px;
+          background: #F7F8FC;
+          z-index: -1;
+          overflow: hidden;
+        }
+      }
+      img {
+        cursor: pointer;
+        @media screen and(max-width: 650px) {
+          width: 100px;
+          height: auto;
+        }
+      }
     }
     .lang-switch {
       margin-left: 55px;
       display: flex;
       justify-content: center;
       align-items: center;
+      @media screen and(max-width: 750px) {
+        display: none;
+      }
       span {
         color: rgba(78, 37, 79, 0.25);
         margin-right: 24px;
@@ -78,9 +110,9 @@ $primary-light: rgba(154, 204, 194, 1);
 
     .header-button {
       padding: 32px 89px 32px 80px;
-    }
-    .header-button img {
-      cursor: pointer;
+      @media screen and(max-width: 750px) {
+        padding: 19px 32px;
+      }
     }
   }
   .menu {
@@ -91,8 +123,8 @@ $primary-light: rgba(154, 204, 194, 1);
 
     .pix {
       position: absolute;
-      width: $pix-size;
-      height: $pix-size;
+      width: 5px;
+      height: 5px;
       background-color: $primary;
       transition: 0.2s ease-in-out;
 
@@ -195,11 +227,32 @@ $primary-light: rgba(154, 204, 194, 1);
 // Hero
 
 .hero {
+  margin-top: 232px;
+  @media screen and(max-width:650px) {
+    margin-top: 162px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    @media screen and(max-width:650px) {
+      margin: 0 24px;
+    }
+  }
   .about-company {
     display: flex;
     justify-content: flex-end;
     margin-right: 180px;
-    margin-top: 232px;
+
+    @media screen and(max-width:1550px) {
+      margin-right: 34px;
+    }
+    @media screen and(max-width:650px) {
+      margin-right: 0px;
+      justify-content: unset;
+      order: 1;
+      margin-top: 15px;
+      margin-bottom: 87px;
+    }
 
     .button-default {
       color: white;
@@ -220,6 +273,9 @@ $primary-light: rgba(154, 204, 194, 1);
     .button-company {
       position: relative;
       padding: 23px 38px;
+      @media screen and(max-width:650px) {
+        width: 100%;
+      }
       &::after {
         content: "";
         position: absolute;
@@ -243,6 +299,7 @@ $primary-light: rgba(154, 204, 194, 1);
     .arrow-right {
       background-image: url("../assets/arrow-right.svg");
       width: 20px;
+      margin-left: -1px;
       padding: 23px 30px;
       background-repeat: no-repeat;
       background-size: 16px;
@@ -252,10 +309,29 @@ $primary-light: rgba(154, 204, 194, 1);
   .promotion {
     margin-left: 180px;
     display: flex;
+    @media screen and(max-width:1550px) {
+      margin-left: 34px;
+    }
+    @media screen and(max-width:650px) {
+      margin-left: 0;
+    }
     .promotion-info-box {
       background: rgba(154, 204, 194, 1);
       padding: 80px 36px 128px 40px;
       max-width: 792px;
+      @media screen and(max-width:1380px) {
+        max-width: 600px;
+      }
+      @media screen and(max-width:1050px) {
+        max-width: 381px;
+        padding: 56px 32px 56px 24px;
+      }
+      @media screen and(max-width:650px) {
+        margin-left: 0;
+        max-width: unset;
+        padding: 32px 16px;
+      }
+      
       h1 {
         color: $primary;
         text-transform: uppercase;
@@ -266,6 +342,13 @@ $primary-light: rgba(154, 204, 194, 1);
         letter-spacing: 0.04em;
         margin: 0;
         margin-bottom: 32px;
+        @media screen and (max-width: 1050px) {
+          font-size: 42px;
+          line-height: 130%;
+        }
+        @media screen and(max-width:650px) {
+          font-size: 30px;
+        }
       }
       p {
         margin: 0;
@@ -275,16 +358,28 @@ $primary-light: rgba(154, 204, 194, 1);
         line-height: 24px;
         text-align: justify;
         color: $primary;
+        @media screen and (max-width: 1050px) {
+          font-size: 14px;
+        }
       }
     }
   }
   .slider {
     display: flex;
     justify-content: space-between;
+    @media screen and(max-width: 650px) {
+      order: -1;
+    }
     .slider-nav {
       display: flex;
       align-items: center;
       margin-left: 180px;
+      @media screen and(max-width:1550px) {
+        margin-left: 34px;
+      }
+      @media screen and(max-width: 650px) {
+        display: none;
+      }
       .swiper-button-prev-unique,
       .swiper-button-next-unique {
         background-image: url("../assets/arrow-right.svg");
@@ -309,17 +404,43 @@ $primary-light: rgba(154, 204, 194, 1);
     .slider-main {
       display: flex;
       color: $primary-light;
+      width: calc(50px + 100vw - 1024px);
+      @media screen and(min-width: 1981px) {
+        width: unset;
+      }
+      @media screen and(max-width:1550px) {
+        width: calc(200px + 100vw - 1024px);
+      }
+      @media screen and(max-width:1380px) {
+        width: calc(390px + 100vw - 1024px);
+      }
+      @media screen and(max-width:1050px) {
+        width: calc(610px + 100vw - 1024px);
+      }
+      @media screen and(max-width: 650px) {
+        width: unset;
+      }
     }
+
     .swiper-pagination-bullet {
       background: none;
       width: 18px;
       margin-right: 14px;
+      @media screen and (max-width: 1050px) {
+        font-size: 14px;
+      }
     }
     .slider-desc {
       position: relative;
       max-width: 585px;
       background: $primary;
       padding: 48px;
+      @media screen and(max-width:1050px) {
+        max-width: unset;
+      }
+      @media screen and(max-width:750px) {
+        padding: 24px;
+      }
 
       h3 {
         font-style: normal;
@@ -328,12 +449,21 @@ $primary-light: rgba(154, 204, 194, 1);
         line-height: 32px;
         margin: 0;
         margin-top: 24px;
+        @media screen and (max-width: 1050px) {
+          font-size: 18px;
+        }
+        @media screen and(max-width:650px) {
+          font-size: 14px;
+        }
       }
       p {
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
+        @media screen and (max-width: 1050px) {
+          font-size: 14px;
+        }
       }
       &::after {
         content: "";
@@ -347,11 +477,21 @@ $primary-light: rgba(154, 204, 194, 1);
         -webkit-transform: skewX(-20deg);
         transform: skewX(-20deg);
         z-index: 10;
+        @media screen and (max-width: 1190px) {
+          display: none;
+        }
       }
     }
     .swiper-container {
       width: 420px;
       height: 256px;
+      @media screen and (max-width: 1190px) {
+        // due to technical limitations Of swiper, we simply hiding slides behind div, otherwise it will not initialize with display none
+        position: absolute;
+        z-index: -1;
+        width: 1px;
+        height: 1px;
+      }
     }
   }
 }

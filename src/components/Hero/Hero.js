@@ -1,7 +1,6 @@
 import SwiperCore, {
   Navigation,
   Pagination,
-  Scrollbar,
   A11y,
   Autoplay,
   EffectFade,
@@ -14,11 +13,10 @@ import sliderImg from "../../assets/slider-img.png";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
-import "swiper/components/scrollbar/scrollbar.scss";
 import { useState } from "react";
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]);
+SwiperCore.use([Navigation, Pagination, A11y, Autoplay, EffectFade]);
 
 const Hero = () => {
   const [currentSlide, setCurrentSlider] = useState(0);
@@ -71,6 +69,9 @@ const Hero = () => {
             </div>
             <Swiper
               spaceBetween={50}
+              observer={true}
+              observeParents={true}
+              observeSlideChildren={true}
               slidesPerView={1}
               autoplay={true}
               fadeEffect={true}
