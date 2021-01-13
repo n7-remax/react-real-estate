@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   // toggle scroll on header menu open/close
   useEffect(() => {
@@ -16,7 +16,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo-box">
-            <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" />
           <div className="lang-switch">
             <span className="selected">UA</span>
             <span>RU</span>
@@ -41,25 +41,23 @@ const Header = () => {
           </a>
         </div>
       </div>
-      {isOpen ? (
-        <div className="nav-menu slide-fade-enter-active">
-          <nav>
-            <a href="#">Головна</a>
-            <a href="#">Про компанію</a>
-            <a href="#">Варіанти придбання</a>
-            <a href="#">Варіанти інвестування</a>
-            <a href="#">Новини</a>
-            <a href="#">Документи</a>
-            <a href="#">Контакти</a>
-            <a href="#">Співробітництво</a>
-          </nav>
-          <div className="copyright">
-            <p>
-              Дизайн та розробка - <span>Svitsoft</span>
-            </p>
-          </div>
+      <div className={isOpen ? "nav-menu fade-in" : "nav-menu fade-out"}>
+        <nav>
+          <a href="#">Головна</a>
+          <a href="#">Про компанію</a>
+          <a href="#">Варіанти придбання</a>
+          <a href="#">Варіанти інвестування</a>
+          <a href="#">Новини</a>
+          <a href="#">Документи</a>
+          <a href="#">Контакти</a>
+          <a href="#">Співробітництво</a>
+        </nav>
+        <div className="copyright">
+          <p>
+            Дизайн та розробка - <span>Svitsoft</span>
+          </p>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 };

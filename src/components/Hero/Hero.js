@@ -69,9 +69,6 @@ const Hero = () => {
             </div>
             <Swiper
               spaceBetween={50}
-              observer={true}
-              observeParents={true}
-              observeSlideChildren={true}
               slidesPerView={1}
               autoplay={true}
               fadeEffect={true}
